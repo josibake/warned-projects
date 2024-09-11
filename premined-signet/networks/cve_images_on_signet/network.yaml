@@ -2,6 +2,9 @@ nodes:
   - name: miner
     image:
       tag: "27.0"
+    loadSnapshot:
+      enabled: true
+      url: "https://github.com/josibake/warnet-projects/raw/main/premined-signet/snapshots/miner_bitcoin_data.tar.gz"
   - name: tank-0001
     image:
       tag: "0.16.1"
