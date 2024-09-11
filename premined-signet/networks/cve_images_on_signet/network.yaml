@@ -1,0 +1,19 @@
+nodes:
+  - name: miner
+    image:
+      tag: "27.0"
+  - name: tank-0001
+    image:
+      tag: "0.16.1"
+  - name: tank-0002
+    image:
+      tag: "0.17.0"
+  - name: tank-0003
+    image:
+      tag: "0.19.2"
+  - name: tank-0004
+    image:
+      tag: "0.20.0"
+  - name: tank-0005
+    image:
+      tag: "0.21.1"

@@ -1,0 +1,36 @@
+chain: signet
+
+collectLogs: true
+metricsExport: false
+fork_observer: false
+
+resources: {}
+  # We usually recommend not to specify default resources and to leave this as a conscious
+  # choice for the user. This also increases chances charts run on environments with little
+  # resources, such as Minikube. If you do want to specify resources, uncomment the following
+  # lines, adjust them as necessary, and remove the curly braces after 'resources:'.
+  # limits:
+  #   cpu: 100m
+  #   memory: 128Mi
+  # requests:
+  #   cpu: 100m
+  #   memory: 128Mi
+
+image:
+  repository: bitcoindevproject/bitcoin
+  pullPolicy: Always
+  # Overrides the image tag whose default is the chart appVersion.
+  tag: "0.16.1"
+# give each node an outbound connection to the miner
+# this gets around an issue where a node starting with zero outbounds
+# will not accept blocks via inbound until certain conditions have
+# been met. still need to verify this
+connect:
+  - miner
+
+config: |
+  dns=1
+  debug=rpc
+  # do not change this! this signet challenge is specific to
+  # the miner_bitcoin_data.tar.gz snapshot in snapshots/
+  signetchallenge=00149c18f8c80df2ed35606df480ca38ce4ab7b37d5f
